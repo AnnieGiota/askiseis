@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ασφάλεια στο Διαδίκτυο – Διαδραστικές ασκήσεις</title>
+</head>
+<body>
+
+<!-- ΑΡΧΗ ΚΩΔΙΚΑ ΓΙΑ ΤΟ BLOG: αντιγράψτε από εδώ μέχρι το «ΤΕΛΟΣ ΚΩΔΙΚΑ» -->
+<div id="ad-ex">
+<style>
+#ad-ex{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1f2d3d;max-width:720px;margin:0 auto;line-height:1.5;font-size:16px;box-sizing:border-box}
+#ad-ex *{box-sizing:border-box}
+#ad-ex .ad-card{background:#fff;border:1px solid #d5dfec;border-radius:12px;padding:18px;margin:0 0 18px}
+#ad-ex h3{margin:0 0 6px;color:#1c5aa6;font-size:1.15rem;line-height:1.3}
+#ad-ex p{margin:0 0 12px}
+#ad-ex .ad-btn{font:inherit;font-size:.92rem;color:#1c5aa6;background:#fff;border:1.5px solid #1c5aa6;border-radius:8px;padding:7px 14px;cursor:pointer}
+#ad-ex .ad-btn:hover{background:#eaf2fc}
+#ad-ex .ad-btn:focus-visible,#ad-ex select:focus-visible,#ad-ex input:focus-visible,#ad-ex .ad-m:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+#ad-ex .ad-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+#ad-ex .ad-msg{margin-top:12px;font-weight:600;min-height:1.5em}
+#ad-ex .ad-ok{color:#1b7a3a;background:#e6f5ea;border-color:#1b7a3a}
+#ad-ex .ad-bad{color:#b3261e;background:#fdecea;border-color:#b3261e}
+#ad-ex .ad-btn.ad-ok:hover{background:#d4eddc}
+#ad-ex .ad-btn.ad-bad:hover{background:#fadbd8}
+
+/* Άσκηση 1 */
+#ad-ex .ad-cloze{line-height:2.4;margin:0 0 4px}
+#ad-ex .ad-cloze + .ad-cloze{border-top:1px dashed #c9d6e6;padding-top:6px}
+#ad-ex select{font:inherit;font-size:.95rem;color:#1c5aa6;background:#fff;border:1.5px solid #1c5aa6;border-radius:8px;padding:4px 8px;margin:0 3px;max-width:100%}
+#ad-ex select.ad-ok{border-color:#1b7a3a;background:#e6f5ea;color:#1b7a3a}
+#ad-ex select.ad-bad{border-color:#b3261e;background:#fdecea;color:#b3261e}
+
+/* Άσκηση 2 & 3 */
+#ad-ex .ad-q{padding:10px 0;border-bottom:1px dashed #c9d6e6}
+#ad-ex .ad-q:last-of-type{border-bottom:0}
+#ad-ex .ad-q-text{margin:0 0 8px}
+#ad-ex .ad-q-text.ad-mono{font-family:"Courier New",Consolas,monospace;font-weight:700;font-size:1.05rem;letter-spacing:.03em}
+#ad-ex .ad-q-btns{display:flex;gap:8px;flex-wrap:wrap}
+#ad-ex .ad-why{margin:8px 0 0;font-size:.9rem;font-weight:400}
+#ad-ex .ad-why.ad-ok{background:none;border:0;color:#1b7a3a}
+#ad-ex .ad-why.ad-bad{background:none;border:0;color:#b3261e}
+
+/* Άσκηση 4 */
+#ad-ex .ad-caution{background:#fff4cc;border-left:4px solid #e0a800;border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:.95rem}
+#ad-ex .ad-input{width:100%;font-family:"Courier New",Consolas,monospace;font-size:1.05rem;padding:10px 12px;border:1.5px solid #1c5aa6;border-radius:8px;color:#1f2d3d;background:#fff}
+#ad-ex .ad-meter{height:12px;border-radius:6px;background:#dde5ef;margin:12px 0;overflow:hidden}
+#ad-ex .ad-meter-fill{height:100%;width:0;background:#b3261e;border-radius:6px;transition:width .25s,background .25s}
+#ad-ex .ad-crit{list-style:none;margin:0;padding:0}
+#ad-ex .ad-crit li{padding:2px 0;color:#b3261e}
+#ad-ex .ad-crit li.ad-met{color:#1b7a3a}
+
+/* Άσκηση 5 */
+#ad-ex .ad-match{display:grid;grid-template-columns:1fr 1.5fr;gap:8px 12px;align-items:start}
+#ad-ex .ad-col{display:flex;flex-direction:column;gap:8px}
+#ad-ex .ad-m{font:inherit;font-size:.9rem;text-align:left;color:#1c5aa6;background:#fff;border:1.5px solid #1c5aa6;border-radius:10px;padding:9px 11px;cursor:pointer;width:100%}
+#ad-ex .ad-m:hover:not(:disabled){background:#eaf2fc}
+#ad-ex .ad-m.ad-sel{background:#1c5aa6;color:#fff}
+#ad-ex .ad-m.ad-wrong{background:#fdecea;border-color:#b3261e;color:#b3261e;animation:ad-shake .35s}
+#ad-ex .ad-m:disabled{cursor:default;color:#1f2d3d}
+#ad-ex .ad-m[data-c="0"]:disabled{background:#dcebfb;border-color:#1c5aa6}
+#ad-ex .ad-m[data-c="1"]:disabled{background:#e3f4e6;border-color:#2e8b47}
+#ad-ex .ad-m[data-c="2"]:disabled{background:#fdeed6;border-color:#d98a12}
+#ad-ex .ad-m[data-c="3"]:disabled{background:#f1e4f8;border-color:#8e44ad}
+#ad-ex .ad-m[data-c="4"]:disabled{background:#fbe0e6;border-color:#c2365a}
+@keyframes ad-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){#ad-ex .ad-m.ad-wrong{animation:none}#ad-ex .ad-meter-fill{transition:none}}
+</style>
+
+<!-- Άσκηση 1 -->
+<section class="ad-card" id="ad-ex1">
+  <h3>Άσκηση 1: Συμπληρώνω τα κενά</h3>
+  <p>Διάλεξε τη σωστή λέξη σε κάθε κενό.</p>
+  <p class="ad-cloze">Ένας ιός μπορεί να
+    <select data-ans="χαλάσει" aria-label="Κενό 1"><option value="">— επίλεξε —</option><option>τραγουδήσει</option><option>ζωγραφίσει</option><option>χαλάσει</option></select>
+    τα αρχεία του υπολογιστή μας και να τον κάνει
+    <select data-ans="αργό" aria-label="Κενό 2"><option value="">— επίλεξε —</option><option>αργό</option><option>φωτεινό</option><option>γρήγορο</option></select>.</p>
+  <p class="ad-cloze">Το λογισμικό προστασίας από ιούς πρέπει να
+    <select data-ans="ενημερώνεται" aria-label="Κενό 3"><option value="">— επίλεξε —</option><option>κοιμάται</option><option>ενημερώνεται</option><option>σβήνεται</option></select>
+    τακτικά, για να αναγνωρίζει τους νέους ιούς.</p>
+  <p class="ad-cloze">Το συνθηματικό μου είναι μυστικό και το λέω μόνο στους
+    <select data-ans="γονείς" aria-label="Κενό 4"><option value="">— επίλεξε —</option><option>ξένους</option><option>συμμαθητές</option><option>γονείς</option></select>
+    μου.</p>
+  <div class="ad-actions">
+    <button type="button" class="ad-btn" data-act="check">Έλεγχος</button>
+    <button type="button" class="ad-btn" data-act="reset">Ξανά ↻</button>
+  </div>
+  <div class="ad-msg" aria-live="polite"></div>
+</section>
+
+<!-- Άσκηση 2 -->
+<section class="ad-card" id="ad-ex2">
+  <h3>Άσκηση 2: Σωστό ή Λάθος;</h3>
+  <p>Πάτησε το κουμπί που πιστεύεις ότι είναι σωστό.</p>
+  <div class="ad-qs"></div>
+  <div class="ad-actions"><button type="button" class="ad-btn" data-act="reset">Ξανά ↻</button></div>
+  <div class="ad-msg" aria-live="polite"></div>
+</section>
+
+<!-- Άσκηση 3 -->
+<section class="ad-card" id="ad-ex3">
+  <h3>Άσκηση 3: Ισχυρό ή αδύναμο συνθηματικό;</h3>
+  <p>Κοίταξε κάθε συνθηματικό και αποφάσισε αν είναι ισχυρό ή αδύναμο.</p>
+  <div class="ad-qs"></div>
+  <div class="ad-actions"><button type="button" class="ad-btn" data-act="reset">Ξανά ↻</button></div>
+  <div class="ad-msg" aria-live="polite"></div>
+</section>
+
+<!-- Άσκηση 4 -->
+<section class="ad-card" id="ad-ex4">
+  <h3>Άσκηση 4: Φτιάχνω ισχυρό συνθηματικό</h3>
+  <p>Πληκτρολόγησε ένα φανταστικό συνθηματικό και δες πόσα από τα 5 κριτήρια πληροί. Προσπάθησε να τα πετύχεις όλα!</p>
+  <div class="ad-caution"><strong>Προσοχή:</strong> Μην γράφεις εδώ το πραγματικό σου συνθηματικό. Εξασκούμαστε μόνο με φανταστικά. Τίποτα δεν αποθηκεύεται και δεν στέλνεται πουθενά.</div>
+  <input class="ad-input" type="text" placeholder="Γράψε ένα φανταστικό συνθηματικό" aria-label="Φανταστικό συνθηματικό" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="40">
+  <div class="ad-meter" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" aria-label="Ισχύς συνθηματικού"><div class="ad-meter-fill"></div></div>
+  <ul class="ad-crit">
+    <li data-k="len">Έχει τουλάχιστον 8 χαρακτήρες</li>
+    <li data-k="up">Έχει κεφαλαίο γράμμα</li>
+    <li data-k="low">Έχει πεζό γράμμα</li>
+    <li data-k="num">Έχει αριθμό</li>
+    <li data-k="sym">Έχει ειδικό χαρακτήρα, όπως ! @ #</li>
+  </ul>
+  <div class="ad-msg" aria-live="polite"></div>
+  <div class="ad-actions"><button type="button" class="ad-btn" data-act="reset">Καθάρισμα</button></div>
+</section>
+
+<!-- Άσκηση 5 -->
+<section class="ad-card" id="ad-ex5">
+  <h3>Άσκηση 5: Αντιστοιχίζω</h3>
+  <p>Πάτησε έναν όρο αριστερά και μετά την περιγραφή που του ταιριάζει δεξιά.</p>
+  <div class="ad-match">
+    <div class="ad-col" data-side="l"></div>
+    <div class="ad-col" data-side="r"></div>
+  </div>
+  <div class="ad-actions"><button type="button" class="ad-btn" data-act="reset">Ξανά ↻</button></div>
+  <div class="ad-msg" aria-live="polite"></div>
+</section>
+
+<script>
+(function(){
+  var root = document.getElementById('ad-ex');
+  if(!root) return;
+
+  function shuffle(a){
+    a = a.slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    return a;
+  }
+
+  /* ---------- Άσκηση 1 ---------- */
+  (function(){
+    var box = root.querySelector('#ad-ex1');
+    var sels = box.querySelectorAll('select');
+    var msg = box.querySelector('.ad-msg');
+    function clear(){ sels.forEach(function(s){ s.classList.remove('ad-ok','ad-bad'); }); }
+    sels.forEach(function(s){ s.addEventListener('change', function(){ clear(); msg.textContent=''; }); });
+    box.querySelector('[data-act="check"]').addEventListener('click', function(){
+      var right = 0, empty = 0;
+      sels.forEach(function(s){
+        s.classList.remove('ad-ok','ad-bad');
+        if(!s.value){ empty++; return; }
+        if(s.value === s.getAttribute('data-ans')){ s.classList.add('ad-ok'); right++; }
+        else { s.classList.add('ad-bad'); }
+      });
+      if(empty){ msg.textContent = 'Συμπλήρωσε πρώτα όλα τα κενά.'; return; }
+      if(right === sels.length) msg.textContent = 'Μπράβο! Όλα σωστά (' + right + '/' + sels.length + ') 🎉';
+      else msg.textContent = 'Σωστά: ' + right + '/' + sels.length + '. Διόρθωσε τα κόκκινα και ξαναπάτησε Έλεγχος.';
+    });
+    box.querySelector('[data-act="reset"]').addEventListener('click', function(){
+      sels.forEach(function(s){ s.selectedIndex = 0; });
+      clear(); msg.textContent='';
+    });
+  })();
+
+  /* ---------- Άσκηση 2 & 3: κοινός κώδικας κουίζ ---------- */
+  function quiz(id, items, labels){
+    var box = root.querySelector(id);
+    var list = box.querySelector('.ad-qs');
+    var msg = box.querySelector('.ad-msg');
+    var done = 0, score = 0;
+
+    function build(){
+      list.innerHTML = ''; done = 0; score = 0; msg.textContent = '';
+      items.forEach(function(it){
+        var q = document.createElement('div'); q.className = 'ad-q';
+        var p = document.createElement('p'); p.className = 'ad-q-text' + (it.mono ? ' ad-mono' : ''); p.textContent = it.text;
+        var row = document.createElement('div'); row.className = 'ad-q-btns';
+        var why = document.createElement('p'); why.className = 'ad-why'; why.setAttribute('aria-live','polite');
+        var btns = labels.map(function(l, idx){
+          var b = document.createElement('button'); b.type='button'; b.className='ad-btn'; b.textContent=l;
+          b.addEventListener('click', function(){
+            if(q.getAttribute('data-done')) return;
+            q.setAttribute('data-done','1');
+            var good = (idx === it.ans);
+            btns.forEach(function(x){ x.disabled = true; x.style.cursor='default'; });
+            b.classList.add(good ? 'ad-ok' : 'ad-bad');
+            if(!good) btns[it.ans].classList.add('ad-ok');
+            why.classList.add(good ? 'ad-ok' : 'ad-bad');
+            why.textContent = (good ? 'Σωστά! ' : 'Όχι ακριβώς. ') + it.why;
+            done++; if(good) score++;
+            if(done === items.length){
+              msg.textContent = 'Σκορ: ' + score + '/' + items.length + (score === items.length ? ' – τέλεια! 🏆' : ' – δοκίμασε ξανά για να βελτιωθείς!');
+            }
+          });
+          row.appendChild(b); return b;
+        });
+        q.appendChild(p); q.appendChild(row); q.appendChild(why); list.appendChild(q);
+      });
+    }
+    box.querySelector('[data-act="reset"]').addEventListener('click', build);
+    build();
+  }
+
+  quiz('#ad-ex2', [
+    {text:'Ένας ιός μπορεί να κρύβεται σε έναν επικίνδυνο σύνδεσμο (link) ή σε ένα μήνυμα από άγνωστο.', ans:0, why:'Οι ιοί συχνά κρύβονται σε links και μηνύματα που φαίνονται αθώα.'},
+    {text:'Αν ένας άγνωστος μου στείλει «δώρο» με link, πρέπει να το ανοίξω αμέσως.', ans:1, why:'Δεν ανοίγουμε ποτέ links από αγνώστους και ρωτάμε έναν μεγάλο.'},
+    {text:'Το λογισμικό προστασίας από ιούς μπορεί να βάλει έναν ιό σε καραντίνα.', ans:0, why:'Στην καραντίνα ο ιός απομονώνεται και δεν μπορεί να κάνει ζημιά.'},
+    {text:'Αρκεί να ανοίξω το antivirus μία φορά και μετά δεν χρειάζεται να είναι ενεργό.', ans:1, why:'Το antivirus πρέπει να είναι πάντα ενεργό, σαν φύλακας που δεν κοιμάται.'},
+    {text:'Μπορώ να πω το συνθηματικό μου στον κολλητό μου φίλο.', ans:1, why:'Το συνθηματικό είναι μυστικό. Το λέμε μόνο στους γονείς μας.'},
+    {text:'Ένα μακρύ συνθηματικό με γράμματα, αριθμούς και σύμβολα είναι δύσκολο να το μαντέψουν.', ans:0, why:'Όσο πιο μακρύ και ανακατεμένο, τόσο πιο ισχυρό.'}
+  ], ['Σωστό','Λάθος']);
+
+  quiz('#ad-ex3', [
+    {text:'qwerty', mono:true, ans:1, why:'Είναι τα πρώτα γράμματα του πληκτρολογίου και το δοκιμάζουν πρώτο.'},
+    {text:'Ft8!pZ3#rN', mono:true, ans:0, why:'Έχει 10 χαρακτήρες, με κεφαλαία, πεζά, αριθμούς και σύμβολα.'},
+    {text:'20102016', mono:true, ans:1, why:'Μόνο αριθμοί και μοιάζει με ημερομηνία, κάτι που μαντεύεται εύκολα.'},
+    {text:'Nk4$vB7@zs', mono:true, ans:0, why:'Έχει ανακατεμένα γράμματα, αριθμούς και σύμβολα.'},
+    {text:'football', mono:true, ans:1, why:'Είναι μια συνηθισμένη λέξη, μόνο με πεζά γράμματα.'},
+    {text:'Lw6#xD2!qy', mono:true, ans:0, why:'Είναι μακρύ και ανακατεμένο, με όλα τα είδη χαρακτήρων.'}
+  ], ['Ισχυρό','Αδύναμο']);
+
+  /* ---------- Άσκηση 4 ---------- */
+  (function(){
+    var box = root.querySelector('#ad-ex4');
+    var input = box.querySelector('input');
+    var fill = box.querySelector('.ad-meter-fill');
+    var meter = box.querySelector('.ad-meter');
+    var msg = box.querySelector('.ad-msg');
+    var lis = {}; box.querySelectorAll('.ad-crit li').forEach(function(li){ lis[li.getAttribute('data-k')] = li; });
+    var marks = {};
+    var text0 = {}; Object.keys(lis).forEach(function(k){ text0[k] = lis[k].textContent; });
+
+    var tests = {
+      len: function(v){ return v.length >= 8; },
+      up: function(v){ return /\p{Lu}/u.test(v); },
+      low: function(v){ return /\p{Ll}/u.test(v); },
+      num: function(v){ return /\d/.test(v); },
+      sym: function(v){ return /[^\p{L}\p{N}\s]/u.test(v); }
+    };
+    function update(){
+      var v = input.value, n = 0;
+      Object.keys(tests).forEach(function(k){
+        var ok = tests[k](v);
+        if(ok) n++;
+        lis[k].classList.toggle('ad-met', ok);
+        lis[k].textContent = (ok ? '✓ ' : '✗ ') + text0[k];
+      });
+      fill.style.width = (n/5*100) + '%';
+      fill.style.background = n <= 2 ? '#b3261e' : (n < 5 ? '#e08a00' : '#1b7a3a');
+      meter.setAttribute('aria-valuenow', n);
+      if(!v) msg.textContent = '';
+      else if(n === 5) msg.textContent = 'Μπράβο! Ισχυρό συνθηματικό! 🎉';
+      else if(n >= 3) msg.textContent = 'Μέτριο. Σχεδόν τα κατάφερες!';
+      else msg.textContent = 'Αδύναμο. Πρόσθεσε ακόμα χαρακτήρες.';
+    }
+    input.addEventListener('input', update);
+    box.querySelector('[data-act="reset"]').addEventListener('click', function(){ input.value=''; update(); input.focus(); });
+    update();
+  })();
+
+  /* ---------- Άσκηση 5 ---------- */
+  (function(){
+    var box = root.querySelector('#ad-ex5');
+    var colL = box.querySelector('[data-side="l"]');
+    var colR = box.querySelector('[data-side="r"]');
+    var msg = box.querySelector('.ad-msg');
+    var pairs = [
+      {t:'Κακόβουλο λογισμικό', d:'Πρόγραμμα που φτιάχτηκε για να κάνει ζημιά'},
+      {t:'Σάρωση', d:'Έλεγχος του υπολογιστή για να βρεθούν οι ιοί'},
+      {t:'Ενημέρωση', d:'Νέες πληροφορίες που μαθαίνουν στο antivirus τους καινούργιους ιούς'},
+      {t:'Όνομα χρήστη', d:'Το όνομα με το οποίο μπαίνω στον λογαριασμό μου, δεν είναι μυστικό'},
+      {t:'Επικίνδυνο link', d:'Σύνδεσμος που φαίνεται αθώος αλλά μπορεί να κατεβάσει ιό'}
+    ];
+    var sel, matched, mistakes;
+
+    function mk(txt, id, side){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'ad-m'; b.textContent = txt;
+      b.setAttribute('data-id', id); b.setAttribute('data-side', side);
+      b.addEventListener('click', function(){ pick(b); });
+      return b;
+    }
+    function build(){
+      colL.innerHTML = ''; colR.innerHTML = '';
+      sel = null; matched = 0; mistakes = 0; msg.textContent = '';
+      pairs.forEach(function(p, i){ colL.appendChild(mk(p.t, i, 'l')); });
+      shuffle(pairs.map(function(p, i){ return i; })).forEach(function(i){ colR.appendChild(mk(pairs[i].d, i, 'r')); });
+    }
+    function pick(b){
+      if(b.disabled) return;
+      if(!sel || sel.getAttribute('data-side') === b.getAttribute('data-side')){
+        if(sel) sel.classList.remove('ad-sel');
+        if(sel === b){ sel = null; return; }
+        sel = b; b.classList.add('ad-sel'); return;
+      }
+      var a = sel; sel = null; a.classList.remove('ad-sel');
+      if(a.getAttribute('data-id') === b.getAttribute('data-id')){
+        var c = matched % 5;
+        [a, b].forEach(function(x){ x.setAttribute('data-c', c); x.disabled = true; });
+        matched++;
+        msg.textContent = matched === pairs.length
+          ? 'Μπράβο! Τα ταίριαξες όλα' + (mistakes ? ' (με ' + mistakes + ' λάθος προσπάθειες)' : ' με την πρώτη') + '! 🎉'
+          : 'Σωστά! ' + matched + '/' + pairs.length;
+      } else {
+        mistakes++;
+        [a, b].forEach(function(x){ x.classList.add('ad-wrong'); });
+        msg.textContent = 'Δεν ταιριάζουν. Δοκίμασε ξανά!';
+        setTimeout(function(){ [a, b].forEach(function(x){ x.classList.remove('ad-wrong'); }); }, 600);
+      }
+    }
+    box.querySelector('[data-act="reset"]').addEventListener('click', build);
+    build();
+  })();
+})();
+</script>
+</div>
+<!-- ΤΕΛΟΣ ΚΩΔΙΚΑ -->
+
+</body>
+</html>
